@@ -24,11 +24,15 @@ type Perlin struct {
 }
 
 func New() *Perlin {
+	return NewWithCustom(0, defaultOctaves, defaultPersistence)
+}
+
+func NewWithCustom(seed int64, octaves int, persistence float64) *Perlin {
 	perlin := &Perlin{
-		Octaves:     defaultOctaves,
-		Persistence: defaultPersistence,
+		Octaves:     octaves,
+		Persistence: persistence,
 	}
-	perlin.Seed(0)
+	perlin.Seed(seed)
 	return perlin
 }
 
