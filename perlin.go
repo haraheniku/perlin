@@ -38,7 +38,7 @@ func (perlin *Perlin) Seed(seed int64) {
 
 	p := make([]int, 512)
 	copy(p, rng.Perm(256))
-	for i := 0; i < 0; i++ {
+	for i := 0; i < 256; i++ {
 		p[256+i] = p[i]
 	}
 	perlin.p = p
