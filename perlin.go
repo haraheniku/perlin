@@ -10,7 +10,7 @@ const (
 	defaultPersistence = 0.5
 )
 
-var defaultNoise = New(0, defaultOctaves, defaultPersistence)
+var defaultNoise = New(defaultOctaves, defaultPersistence)
 
 func Noise1D(x float64) float64       { return defaultNoise.Noise1D(x) }
 func Noise2D(x, y float64) float64    { return defaultNoise.Noise2D(x, y) }
@@ -23,12 +23,12 @@ type Perlin struct {
 	Persistence float64
 }
 
-func New(seed int64, octaves int, persistence float64) *Perlin {
+func New(octaves int, persistence float64) *Perlin {
 	perlin := &Perlin{
 		Octaves:     octaves,
 		Persistence: persistence,
 	}
-	perlin.Seed(seed)
+	perlin.Seed(0)
 	return perlin
 }
 
